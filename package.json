@@ -10,13 +10,14 @@
   "license": "MIT",
   "author": "Peter Elger (http://nearform.com/)",
   "contributors": [
-    "Peter Elger <elger.peter@gmail.com> (http://peterelger.com/)",
+    "Peter Elger <elger.peter@gmail.com> (http://peterelger.com/)"
   ],
   "main": "./main.js",
   "engines": {
     "node": "*"
   },
   "dependencies": {
+    "mu": "apparatus/mu"
   },
   "repository": {
     "type": "git",
@@ -31,4 +32,3 @@
     "tap": "^7.1.2"
   }
 }
-~

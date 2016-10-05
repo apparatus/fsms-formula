@@ -17,6 +17,5 @@
 var tcp = require('mu/drivers/tcp')
 
 require('./service')(function (mu) {
-  mu.inbound('*', tcp.server({port: process.env.SERVICE_PORT, host: process.env.SERVICE_HOST}))
+  mu.inbound('*', tcp.server({port: process.env.SERVICE_PORT || 6000, host: process.env.SERVICE_HOST || localhost}))
 })
-

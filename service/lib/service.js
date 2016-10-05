@@ -34,4 +34,3 @@ module.exports = function (cb) {
     cb(mu)
   }, 1000)
 }
-
