@@ -29,6 +29,7 @@
     "coverage": "tap test/**/*Test.js --cov --coverage-report=html"
   },
   "devDependencies": {
+    "hapi": "^15.1.1",
     "tap": "^7.1.2"
   }
 }
