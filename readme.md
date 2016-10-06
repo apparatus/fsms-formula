@@ -4,7 +4,7 @@ Full stack micro-service boilerplate. Provides a template for backend service an
 ##Overview
 This template provides a context for the development of an individual full-stack micro-service. AS illustrated below:
 
-![image](/Users/pelger/work/nearform/code/nearform/fullstack-boilerplate/doc/logical.png)
+![image](https://github.com/nearform/fullstack-boilerplate/blob/master/doc/logical.png)
 
 A full stack micro-service is comprised of a backend service, a front end react componenet and a wiring configuration.
 
