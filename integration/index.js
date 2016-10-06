@@ -3,11 +3,11 @@
 var Hapi = require('hapi')
 var services = require('./services')
 var server = new Hapi.Server()
-
-server.connection({
-  port: Number(process.env.SERVICE_PORT),
-  host: process.env.SERVICE_HOST
-})
+var opts = {
+  port: Number(process.env.HAPI_SERVICE_PORT || 6000),
+  host: process.env.HAPI_SERVICE_HOST || 'localhost'
+}
+server.connection(opts)
 
 services(server)
 server.register({
@@ -17,7 +17,7 @@ server.register({
   function (err) {
     if (err) { throw err }
     server.start(function () {
-      console.log('listening on port: ' + process.env.SERVICE_PORT)
+      console.log('hapi server listening on port: ' + opts.port)
     })
   }
 )
