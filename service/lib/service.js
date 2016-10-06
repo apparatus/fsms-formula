@@ -14,24 +14,19 @@
 
 'use strict'
 
-
-var mu = require('mu')()
-
-module.exports = function (cb) {
-
-  mu.define({role: 's2', cmd: 'one'}, function (args, cb) {
-    console.log('service 2 one')
+module.exports.create = function (done) {
+  function one(args, cb) {
+    console.log('service 2  - one')
     cb()
-  })
+  }
 
-  mu.define({role: 's2', cmd: 'two'}, function (args, cb) {
-    console.log('service 2 two')
+  function two(args, cb) {
+    console.log('service 2 - two')
     cb(null, {my: 'response'})
-  })
+  }
 
   // simulate resource initialization
   setTimeout(function () {
-    cb(mu)
+    done({one: one, two: two})
   }, 1000)
 }
-

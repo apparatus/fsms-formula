@@ -14,9 +14,13 @@
 
 'use strict'
 
-var tcp = require('mu/drivers/tcp')
+var mu = require('mu')()
+var Tcp = require('mu/drivers/tcp')
+var Service = require('./lib/service')
 
-require('./service')(function (mu) {
-  mu.inbound('*', tcp.server({port: process.env.SERVICE_PORT, host: process.env.SERVICE_HOST}))
+Service.create(function (service) {
+  mu.define({role: 's2', cmd: 'one'}, service.one)
+  mu.define({role: 's2', cmd: 'two'}, service.two)
+
+  mu.inbound('*', Tcp.server({port: process.env.SERVICE_PORT || 6000, host: process.env.SERVICE_HOST || 'localhost'}))
 })
-
