@@ -14,19 +14,28 @@
 
 'use strict'
 
-module.exports.create = function (done) {
-  function one(args, cb) {
-    console.log('service 2  - one')
+module.exports = function (done) {
+
+  function one (args, cb) {
     cb()
   }
 
-  function two(args, cb) {
-    console.log('service 2 - two')
+
+
+  function two (args, cb) {
     cb(null, {my: 'response'})
   }
+
+
 
   // simulate resource initialization
   setTimeout(function () {
     done({one: one, two: two})
   }, 1000)
+
+  return {
+    one: one,
+    two: two
+  }
 }
+

@@ -15,12 +15,35 @@
 'use strict'
 
 var mu = require('mu')()
-var Tcp = require('mu/drivers/tcp')
-var Service = require('./lib/service')
+var tcp = require('mu/drivers/tcp')
+var service = require('./lib/service')
 
-Service.create(function (service) {
-  mu.define({role: 's2', cmd: 'one'}, service.one)
-  mu.define({role: 's2', cmd: 'two'}, service.two)
 
-  mu.inbound('*', Tcp.server({port: process.env.SERVICE_PORT || 6000, host: process.env.SERVICE_HOST || 'localhost'}))
-})
+/**
+ * options:
+ *
+ *  port: process.env.SERVICE_PORT || 6000
+ *  host: process.env.SERVICE_HOST || 'localhost'
+ */
+module.exports = function (options) {
+
+  function start (cb) {
+    service(function (svc) {
+      mu.define({role: 's2', cmd: 'one'}, svc.one)
+      mu.define({role: 's2', cmd: 'two'}, svc.two)
+      mu.inbound('*', tcp.server(options))
+      cb()
+    })
+  }
+
+
+  function stop () {
+    mu.tearDown()
+  }
+
+  return {
+    start: start,
+    stop: stop
+  }
+}
+
