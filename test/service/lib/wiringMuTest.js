@@ -23,7 +23,7 @@ test('empty answer', (t) => {
 })
 
 
-test('empty answer', (t) => {
+test('valid answer', (t) => {
   t.plan(2)
   var mu = Mu()
   mu.outbound('*', tcp.client(opts))
@@ -39,7 +39,7 @@ test('empty answer', (t) => {
 })
 
 
-test('empty answer', (t) => {
+test('invalid answer', (t) => {
   t.plan(2)
   var mu = Mu()
   mu.outbound('*', tcp.client(opts))

@@ -62,14 +62,8 @@ npm run lint
 ###Integration tests
 
 To run the integration tests:
-* In a console run:
 
 ```
-node service/wiring-mu.js
-```
-
-* In another console run:
-
-```
-node integration/serviceTest.js
+cd integration
+npm run test
 ```
