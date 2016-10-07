@@ -13,7 +13,7 @@ test('empty answer', (t) => {
   mu.outbound('*', tcp.client(opts))
 
   wiring.start(() => {
-    mu.dispatch({role: 's2', cmd: 'one'}, (err, result) => {
+    mu.dispatch({role: 's1', cmd: 'one'}, (err, result) => {
       t.error(err)
       t.deepEqual({}, result)
       wiring.stop()
@@ -23,13 +23,13 @@ test('empty answer', (t) => {
 })
 
 
-test('empty answer', (t) => {
+test('valid answer', (t) => {
   t.plan(2)
   var mu = Mu()
   mu.outbound('*', tcp.client(opts))
 
   wiring.start(() => {
-    mu.dispatch({role: 's2', cmd: 'two'}, (err, result) => {
+    mu.dispatch({role: 's1', cmd: 'two'}, (err, result) => {
       t.error(err)
       t.deepEqual({my: 'response'}, result)
       wiring.stop()
@@ -39,7 +39,7 @@ test('empty answer', (t) => {
 })
 
 
-test('empty answer', (t) => {
+test('invalid answer', (t) => {
   t.plan(2)
   var mu = Mu()
   mu.outbound('*', tcp.client(opts))

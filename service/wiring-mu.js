@@ -29,8 +29,8 @@ module.exports = function (options) {
 
   function start (cb) {
     service(function (svc) {
-      mu.define({role: 's2', cmd: 'one'}, svc.one)
-      mu.define({role: 's2', cmd: 'two'}, svc.two)
+      mu.define({role: 's1', cmd: 'one'}, svc.one)
+      mu.define({role: 's1', cmd: 'two'}, svc.two)
       mu.inbound('*', tcp.server(options))
       cb()
     })
