@@ -17,7 +17,7 @@
     "tap": "^7.1.2"
   },
   "scripts": {
-    "test": "tap run.js"
+    "test": "HAPI_SERVICE_PORT=6001 HAPI_SERVICE_HOST='localhost' SERVICE_PORT=6000 SERVICE_HOST='localhost' tap run.js"
   },
   "repository": {
     "private": true

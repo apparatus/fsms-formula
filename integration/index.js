@@ -4,8 +4,8 @@ var Hapi = require('hapi')
 var services = require('./services')
 var server = new Hapi.Server()
 var opts = {
-  port: Number(process.env.HAPI_SERVICE_PORT || 6000),
-  host: process.env.HAPI_SERVICE_HOST || 'localhost'
+  port: Number(process.env.HAPI_SERVICE_PORT),
+  host: process.env.HAPI_SERVICE_HOST
 }
 server.connection(opts)
 

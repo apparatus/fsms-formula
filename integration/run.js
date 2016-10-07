@@ -6,11 +6,6 @@ const http = require('http')
 
 var env = Object.create( process.env )
 env.NODE_ENV = 'test'
-env.HAPI_SERVICE_PORT = 6001
-env.HAPI_SERVICE_HOST = 'localhost'
-
-env.SERVICE_PORT = 6000
-env.SERVICE_HOST = 'localhost'
 
 test('integration test', (t) => {
   t.plan(2)
@@ -24,7 +19,7 @@ test('integration test', (t) => {
   })
 
   var service
-  setTimeout(() => {
+  function serviceSpawn() {
     service = spawn('node', ['service'], {env: env})
     service.stdout.on('data', (data) => {
       console.log(`stdout: ${data}`)
@@ -32,15 +27,16 @@ test('integration test', (t) => {
     service.stderr.on('data', (data) => {
       console.log(`stderr: ${data}`)
     })
-  }, 1000)
-
-  const httpOpts = {
-    hostname: env.HAPI_SERVICE_HOST,
-    port: env.HAPI_SERVICE_PORT,
-    path: '/service1/action2'
   }
+  setTimeout(serviceSpawn, 1000)
 
-  setTimeout(() => {
+  function httpRequest() {
+    const httpOpts = {
+      hostname: env.HAPI_SERVICE_HOST,
+      port: env.HAPI_SERVICE_PORT,
+      path: '/service1/action2'
+    }
+
     const req = http.request(httpOpts, (response) => {
       var res = ''
 
@@ -55,8 +51,8 @@ test('integration test', (t) => {
         t.error(answer.err)
         t.deepEqual({my: 'response'}, answer.result)
 
-        hapi.kill()
-        service.kill()
+        if (hapi) hapi.kill()
+        if (service) service.kill()
 
         process.exit(0)
       })
@@ -67,5 +63,6 @@ test('integration test', (t) => {
     })
 
     req.end()
-  }, 3000)
+  }
+  setTimeout(httpRequest, 3000)
 })
