@@ -41,3 +41,9 @@ jspm_packages
 
 .idea/
 .vscode/
+
+# Build artifacts
+frontend/dist/*
+!frontend/dist/index.html
+!frontend/dist/loading.gif
+!frontend/dist/main.css
