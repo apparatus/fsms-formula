@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var path = require('path');
 
 var plugins = [
   new webpack.DefinePlugin({
@@ -12,7 +13,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './src/index.dev.jsx'
+    path.join(__dirname, 'src/index.dev.jsx')
   ],
 
   module: {
@@ -46,13 +47,13 @@ module.exports = {
   devtool: 'source-map',
 
   output: {
-    path: __dirname + '/dist',
+    path: path.join(__dirname, 'dist'),
     publicPath: '/',
     filename: 'index.dev.js'
   },
 
   devServer: {
-    contentBase: './dist',
+    contentBase: path.join(__dirname, 'dist'),
     hot: true,
     historyApiFallback: true,
     host: '0.0.0.0',
