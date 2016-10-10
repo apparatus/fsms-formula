@@ -1,33 +1,33 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import './Login.scss';
+import './Login.scss'
 
 @connect(({ auth }) => {
   auth
 })
 export default class Login extends Component {
-  _handleChangeEmail = ({ target: { value: email }}) => this.setState({ email });
-  _handleChangePassword = ({ target: { value: password }}) => this.setState({ password });
+  _handleChangeEmail = ({target: { value: email }}) => this.setState({ email })
+  _handleChangePassword = ({target: { value: password }}) => this.setState({ password })
 
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    this.state = {};
+    this.state = {}
 
-    this.login = ::this.login;
+    this.login = ::this.login
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (nextProps.auth.user) {
-      window.alert('Logged in!');
+      window.alert('Logged in!')
     }
   }
 
-  login() {
+  login () {
     this.props.dispatch({
       type: 'LOGIN_REQUEST'
-    });
+    })
   }
 
   render () {
@@ -46,6 +46,7 @@ export default class Login extends Component {
           <button type="button" onClick={this.login}>Login</button>
         </div>
       </div>
-    );
+    )
   }
 }
+

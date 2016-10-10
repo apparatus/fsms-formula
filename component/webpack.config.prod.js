@@ -1,6 +1,6 @@
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var path = require('path');
+var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
+var path = require('path')
 
 var plugins = [
   new webpack.DefinePlugin({
@@ -11,7 +11,7 @@ var plugins = [
       warnings: false
     }
   })
-];
+]
 
 module.exports = {
   entry: path.join(__dirname, 'src/index.jsx'),
@@ -52,4 +52,4 @@ module.exports = {
   },
 
   plugins: plugins
-};
+}

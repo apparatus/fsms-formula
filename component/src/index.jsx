@@ -1,5 +1,5 @@
-import LoginComponent from './components/Login';
-import { LoginRoute } from './routes';
+import LoginComponent from './components/Login'
+import { LoginRoute } from './routes'
 
 export {
   LoginComponent,
