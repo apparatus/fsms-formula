@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src",
+    "lint": "spacey-standard",
     "dev": "./node_modules/.bin/webpack-dev-server",
     "build": "npm run lint && NODE_ENV=production ./node_modules/.bin/webpack"
   },
@@ -58,6 +58,7 @@
     "precss": "^1.4.0",
     "react-hot-loader": "^1.3.0",
     "sass-loader": "^4.0.2",
+    "spacey-standard": "^3.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",

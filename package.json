@@ -24,11 +24,12 @@
     "url": "https://github.com/nearform/fullstack-boilerplate.git"
   },
   "scripts": {
-    "lint": "jshint **/*.js",
+    "lint": "spacey-standard **/*.js",
     "test": "tap test/**/*Test.js",
     "coverage": "tap test/**/*Test.js --cov --coverage-report=html"
   },
   "devDependencies": {
-    "tap": "^7.1.2"
+    "tap": "^7.1.2",
+     "spacey-standard": "^3.0.0"
   }
 }
