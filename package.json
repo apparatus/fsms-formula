@@ -10,13 +10,15 @@
   "license": "MIT",
   "author": "Peter Elger (http://nearform.com/)",
   "contributors": [
-    "Peter Elger <elger.peter@gmail.com> (http://peterelger.com/)"
+    "Peter Elger <elger.peter@gmail.com> (http://peterelger.com/)",
+    "Salman Mitha <salmanmitha@gmail.com>"
   ],
-  "main": "./main.js",
+  "main": "./index.js",
   "engines": {
     "node": "*"
   },
   "dependencies": {
+    "inert": "^4.0.2",
     "mu": "apparatus/mu"
   },
   "repository": {
@@ -24,11 +26,14 @@
     "url": "https://github.com/nearform/fullstack-boilerplate.git"
   },
   "scripts": {
-    "lint": "jshint **/*.js",
+    "lint": "spacey-standard **/*.js",
     "test": "tap test/**/*Test.js",
     "coverage": "tap test/**/*Test.js --cov --coverage-report=html"
   },
   "devDependencies": {
-    "tap": "^7.1.2"
-  }
+    "tap": "^7.1.2",
+     "spacey-standard": "^3.0.0",
+    "pre-commit": "^1.1.3"
+  },
+  "pre-commit": []
 }

@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var path = require('path');
 
 var plugins = [
   new webpack.DefinePlugin({
@@ -13,7 +14,7 @@ var plugins = [
 ];
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: path.join(__dirname, 'src/index.jsx'),
 
   module: {
     loaders: [{
@@ -44,9 +45,10 @@ module.exports = {
   },
 
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'index.js'
+    path: path.join(__dirname, 'dist'),
+    filename: 'index.js',
+    libraryTarget: 'umd',
+    library: 'SomeGreatComponent'
   },
 
   plugins: plugins
