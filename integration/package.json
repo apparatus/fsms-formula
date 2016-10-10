@@ -17,7 +17,8 @@
     "tap": "^7.1.2"
   },
   "scripts": {
-    "test": "HAPI_SERVICE_PORT=6001 HAPI_SERVICE_HOST='localhost' SERVICE_PORT=6000 SERVICE_HOST='localhost' tap run.js"
+    "test": "env $(cat .env) tap run.js",
+    "start": "env $(cat .env) node run.js"
   },
   "repository": {
     "private": true
