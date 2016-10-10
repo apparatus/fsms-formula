@@ -9,6 +9,9 @@
     "dev": "./node_modules/.bin/webpack-dev-server",
     "build": "npm run lint && NODE_ENV=production ./node_modules/.bin/webpack"
   },
+  "contributors": [
+    "Salman Mitha <salmanmitha@gmail.com>"
+  ],
   "pre-commit": [
     "lint"
   ],
@@ -16,11 +19,6 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.14.0",
-    "babel-core": "^6.14.0",
-    "babel-loader": "^6.2.5",
-    "babel-preset-react": "^6.11.1",
-    "eslint-plugin-import": "^2.0.0",
-    "eslint-plugin-react": "^6.3.0",
     "lodash": "^4.16.2",
     "moment": "^2.15.1",
     "muicss": "^0.8.1",
@@ -38,6 +36,11 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-react": "^6.11.1",
+    "eslint-plugin-import": "^2.0.0",
+    "eslint-plugin-react": "^6.3.0",
     "autoprefixer": "^6.5.0",
     "babel-eslint": "^6.1.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
