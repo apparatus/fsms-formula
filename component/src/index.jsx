@@ -1,7 +1,7 @@
 import LoginComponent from './components/Login'
 import { LoginRoute } from './routes'
 
-export {
+export default {
   LoginComponent,
   LoginRoute
 }
