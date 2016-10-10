@@ -17,6 +17,7 @@
     "node": "*"
   },
   "dependencies": {
+    "inert": "^4.0.2",
     "mu": "apparatus/mu"
   },
   "repository": {
