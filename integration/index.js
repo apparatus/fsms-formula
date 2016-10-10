@@ -16,8 +16,8 @@ var opts = {
 server.connection(opts)
 
 var plugins = [
- {
-    register: Inert,
+  {
+    register: Inert
   },
   {
     register: require('good'),
@@ -42,6 +42,8 @@ server.register(plugins,
 
     var relativePath = Path.join(__dirname, '../frontend/dist/')
     server.realm.settings.files.relativeTo = relativePath
+
+    server.route(ClientRoutes)
 
     server.start(function () {
       console.log('hapi server listening on port: ' + opts.port)

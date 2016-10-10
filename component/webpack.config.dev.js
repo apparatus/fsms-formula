@@ -1,13 +1,13 @@
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var path = require('path');
+var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
+var path = require('path')
 
 var plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
   }),
   new webpack.HotModuleReplacementPlugin()
-];
+]
 
 module.exports = {
   entry: [
@@ -61,4 +61,4 @@ module.exports = {
   },
 
   plugins: plugins
-};
+}

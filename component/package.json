@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
+  "spacey-standard": {
+    "parser": "babel-eslint"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "spacey-standard",

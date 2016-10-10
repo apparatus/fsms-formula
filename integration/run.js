@@ -4,7 +4,7 @@ var test = require('tap').test
 const spawn = require('child_process').spawn
 const http = require('http')
 
-var env = Object.create( process.env )
+var env = Object.create(process.env)
 env.NODE_ENV = 'test'
 
 test('integration test', (t) => {
@@ -19,7 +19,7 @@ test('integration test', (t) => {
   })
 
   var service
-  function serviceSpawn() {
+  function serviceSpawn () {
     service = spawn('node', ['service'], {env: env})
     service.stdout.on('data', (data) => {
       console.log(`stdout: ${data}`)
@@ -30,7 +30,7 @@ test('integration test', (t) => {
   }
   setTimeout(serviceSpawn, 1000)
 
-  function httpRequest() {
+  function httpRequest () {
     const httpOpts = {
       hostname: env.HAPI_SERVICE_HOST,
       port: env.HAPI_SERVICE_PORT,
