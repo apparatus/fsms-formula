@@ -10,9 +10,10 @@
   "license": "MIT",
   "author": "Peter Elger (http://nearform.com/)",
   "contributors": [
-    "Peter Elger <elger.peter@gmail.com> (http://peterelger.com/)"
+    "Peter Elger <elger.peter@gmail.com> (http://peterelger.com/)",
+    "Salman Mitha <salmanmitha@gmail.com>"
   ],
-  "main": "./main.js",
+  "main": "./index.js",
   "engines": {
     "node": "*"
   },
@@ -29,6 +30,8 @@
     "coverage": "tap test/**/*Test.js --cov --coverage-report=html"
   },
   "devDependencies": {
-    "tap": "^7.1.2"
-  }
+    "tap": "^7.1.2",
+    "pre-commit": "^1.1.3"
+  },
+  "pre-commit": []
 }
