@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 
 import './Login.scss'
 
-@connect(({ auth }) => {
-  auth
-})
 export default class Login extends Component {
   _handleChangeEmail = ({target: { value: email }}) => this.setState({ email })
   _handleChangePassword = ({target: { value: password }}) => this.setState({ password })
@@ -18,16 +15,8 @@ export default class Login extends Component {
     this.login = ::this.login
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.auth.user) {
-      window.alert('Logged in!')
-    }
-  }
-
   login () {
-    this.props.dispatch({
-      type: 'LOGIN_REQUEST'
-    })
+
   }
 
   render () {
@@ -49,4 +38,3 @@ export default class Login extends Component {
     )
   }
 }
-
