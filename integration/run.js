@@ -49,7 +49,7 @@ test('integration test', (t) => {
 
         var answer = JSON.parse(res)
         t.error(answer.err)
-        t.deepEqual({my: 'response'}, answer.result)
+        t.deepEqual({my: 'action two'}, answer.result)
 
         if (hapi) hapi.kill()
         if (service) service.kill()
