@@ -31,7 +31,7 @@ test('valid answer', (t) => {
   wiring.start(() => {
     mu.dispatch({role: 's1', cmd: 'two'}, (err, result) => {
       t.error(err)
-      t.deepEqual({my: 'response'}, result)
+      t.deepEqual({my: 'action two'}, result)
       wiring.stop()
       mu.tearDown()
     })

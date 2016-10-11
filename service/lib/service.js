@@ -17,7 +17,7 @@
 module.exports = function (done) {
 
   function one (args, cb) {
-    cb(null, {my: 'action one'})
+    cb()
   }
 
 

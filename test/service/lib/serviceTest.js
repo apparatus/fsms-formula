@@ -18,7 +18,7 @@ test('service response', (t) => {
   service((svc) => {
     svc.two({}, (err, result) => {
       t.error(err)
-      t.deepEqual({my: 'response'}, result)
+      t.deepEqual({my: 'action two'}, result)
     })
   })
 })
