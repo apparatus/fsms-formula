@@ -23,7 +23,7 @@ module.exports = function (done) {
 
 
   function two (args, cb) {
-    cb(null, {my: 'response'})
+    cb(null, {my: 'action two'})
   }
 
 
