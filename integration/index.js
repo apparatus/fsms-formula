@@ -36,9 +36,22 @@ var plugins = [
 
 services(server)
 
-server.register(plugins,
-  function (err) {
-    if (err) { throw err }
+server.register(plugins, function (err) {
+    if (err) {
+      throw err
+    }
+
+    server.route({
+      method: 'GET',
+      path: '/component/{param*}',
+      handler: {
+        directory: {
+          path: '../component/dist/',
+          listing: true,
+          index: true
+        }
+      }
+    });
 
     var relativePath = Path.join(__dirname, '../component/dist/')
     server.realm.settings.files.relativeTo = relativePath
