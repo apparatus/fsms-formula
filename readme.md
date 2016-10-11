@@ -40,6 +40,10 @@ Install dependencies:
 ```
 npm install
 ```
+###Configuring integration tests
+
+In the `Integration` folder the app is looking for an `.env` file that contains the application configuration.
+An `.env.example` file is provided in that folder. Copy it to `.env` and modify the settings.
 
 ###Running unit tests, coverage
 
@@ -67,3 +71,14 @@ To run the integration tests:
 cd integration
 npm run test
 ```
+
+###Start the Hapi server
+
+To start the Hapi server used to serve the frontend:
+
+```
+cd integration
+npm run start
+```
+
+Look at the `Configuration` section to make sure the system is configured properly.
