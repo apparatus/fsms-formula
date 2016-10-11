@@ -20,7 +20,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'babel'
     }, {
       test: /\.scss$/,
       loader: 'style!css!postcss-loader!sass'
@@ -48,7 +48,12 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'index.js',
     libraryTarget: 'umd',
-    library: 'SomeGreatComponent'
+    library: 'FullstackBoilerplate'
+  },
+
+  externals: {
+   'react': 'react',
+   'react-dom' : 'react-dom'
   },
 
   plugins: plugins

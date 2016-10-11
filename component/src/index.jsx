@@ -1,7 +1,6 @@
-import LoginComponent from './components/Login'
-import { LoginRoute } from './routes'
+import { HelloWorld, HelloWorldRoute } from './HelloWorld'
 
-export default {
-  LoginComponent,
-  LoginRoute
+export {
+  HelloWorld,
+  HelloWorldRoute
 }
