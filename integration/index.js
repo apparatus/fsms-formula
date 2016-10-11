@@ -40,7 +40,7 @@ server.register(plugins,
   function (err) {
     if (err) { throw err }
 
-    var relativePath = Path.join(__dirname, '../frontend/dist/')
+    var relativePath = Path.join(__dirname, '../component/dist/')
     server.realm.settings.files.relativeTo = relativePath
 
     server.route(ClientRoutes)
@@ -50,4 +50,3 @@ server.register(plugins,
     })
   }
 )
-

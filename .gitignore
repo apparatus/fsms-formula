@@ -43,10 +43,10 @@ jspm_packages
 .vscode/
 
 # Build artifacts
-frontend/dist/*
-!frontend/dist/index.html
-!frontend/dist/loading.gif
-!frontend/dist/main.css
+component/dist/*
+!component/dist/index.html
+!component/dist/loading.gif
+!component/dist/main.css
 
 #env
 .env
