@@ -3,6 +3,16 @@
 module.exports = [
   {
     method: 'GET',
+    path: '/component/{param*}',
+    handler: {
+      directory: {
+        path: './',
+        index: true
+      }
+    }
+  },
+  {
+    method: 'GET',
     path: '/css/{path*}',
     config: {
       auth: false
