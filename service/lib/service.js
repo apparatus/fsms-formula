@@ -17,13 +17,13 @@
 module.exports = function (done) {
 
   function one (args, cb) {
-    cb()
+    cb(null, {my: 'action one'})
   }
 
 
 
   function two (args, cb) {
-    cb(null, {my: 'response'})
+    cb(null, {my: 'action two'})
   }
 
 
