@@ -10,11 +10,25 @@ export class HelloWorld extends Component {
   }
 
   action1 () {
-
+    window.fetch('/service1/action1')
+      .then((response) => response.json())
+      .then((data) => {
+        window.alert('Response from service1 action1')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   action2 () {
-
+    window.fetch('/service1/action2')
+      .then((response) => response.json())
+      .then((data) => {
+        window.alert('Response from service1 action2')
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   render () {
@@ -22,7 +36,7 @@ export class HelloWorld extends Component {
       <div>
         <button type="button" onClick={this.action1}>Call Service1 Action1</button>
         <br />
-        <button type="button" onClick={this.action2}>Call Service2 Action2</button>
+        <button type="button" onClick={this.action2}>Call Service1 Action2</button>
       </div>
     )
   }
