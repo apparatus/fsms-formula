@@ -1,0 +1,13 @@
+version: '2'
+services:
+  integration:
+    build: ../integration
+    ports:
+      - "6001:6001"
+    depends_on:
+      - service
+  service:
+    build: ../service
+    ports:
+      - "6000:6000"
+    
