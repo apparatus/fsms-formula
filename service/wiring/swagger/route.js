@@ -3,7 +3,6 @@ var Joi = require('joi')
 
 var service = require('../../lib/service')
 
-
 module.exports = function (server) {
   server.route({
     method: 'GET',
