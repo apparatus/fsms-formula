@@ -10,6 +10,8 @@
   "author": "Michele Capra",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^2.0.0",
+    "mini-service": "^1.3.0",
     "mu": "^1.0.0"
   }
 }

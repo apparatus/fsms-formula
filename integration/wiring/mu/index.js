@@ -12,17 +12,11 @@ function handleRoleCommand (role, command, request, reply) {
   })
 }
 
-
-module.exports = function (server) {
-  server.route({
-    method: 'GET',
-    path: '/service1/action1',
-    handler: function (request, reply) { handleRoleCommand('s1', 'one', request, reply) }
-  })
-  server.route({
-    method: 'GET',
-    path: '/service1/action2',
-    handler: function (request, reply) { handleRoleCommand('s1', 'two', request, reply) }
-  })
+module.exports = {
+  handleOne: function (request, reply) { handleRoleCommand('s1', 'one', request, reply) },
+  handleTwo: function (request, reply) { handleRoleCommand('s1', 'two', request, reply) }
 }
+
+
+
 

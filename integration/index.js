@@ -3,7 +3,7 @@
 var Hapi = require('hapi')
 var Inert = require('inert')
 var Path = require('path')
-var services = require('./services')
+var ServerRoute = require('./routes/server')
 
 var ClientRoutes = require('./routes/client')
 
@@ -34,7 +34,7 @@ var plugins = [
   }
 ]
 
-services(server)
+ServerRoute(server)
 
 server.register(plugins, function (err) {
     if (err) {
