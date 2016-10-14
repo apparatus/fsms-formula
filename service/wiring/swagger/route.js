@@ -1,6 +1,5 @@
 'use strict'
 var Joi = require('joi')
-
 var service = require('../../lib/service')
 
 module.exports = function (server) {

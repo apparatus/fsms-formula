@@ -18,8 +18,8 @@ server.register([
         'foobar/test': 'Example foobar description'
       },
       info: {
-        title: 'Example API',
-        description: 'Powered by node, hapi, joi, hapi-swaggered, hapi-swaggered-ui and swagger-ui',
+        title: 'Microservice Swagger API',
+        description: 'Swagger wiring for microservice',
         version: '1.0'
       }
     }
@@ -27,15 +27,8 @@ server.register([
   {
     register: require('hapi-swaggered-ui'),
     options: {
-      title: 'Example API',
+      title: 'Microservice Swagger API',
       path: '/docs',
-      authorization: {
-        field: 'apiKey',
-        scope: 'query', // header works as well
-        // valuePrefix: 'bearer '// prefix incase
-        defaultValue: 'demoKey',
-        placeholder: 'Enter your apiKey here'
-      },
       swaggerOptions: {
         validatorUrl: null
       }
