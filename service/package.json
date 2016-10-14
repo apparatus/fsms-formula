@@ -10,6 +10,11 @@
   "author": "Michele Capra",
   "license": "ISC",
   "dependencies": {
-    "mu": "^1.0.0"
+    "hapi": "^15.1.1",
+    "hapi-swaggered": "^2.7.0",
+    "hapi-swaggered-ui": "^2.5.1",
+    "joi": "^9.1.1",
+    "mu": "^1.0.0",
+    "vision": "^4.1.0"
   }
 }
