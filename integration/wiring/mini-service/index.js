@@ -1,4 +1,5 @@
-const client = require('mini-service')({remote: 'http://my-service:8080'})
+const mini = require('mini-service')
+const client = mini.getClient({remote: 'http://localhost:8080'})
 
 module.exports = {
   handleOne: function (request, reply) { 
