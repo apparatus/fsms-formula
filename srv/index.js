@@ -1,23 +1,16 @@
 'use strict'
-const mu = require('mu')()
-const initialize = require('./initialize.js')
-const routing = require('./routing.js')
-const service = require('./service.js')
-const {name} = require('../package.json')
+const wiring = require('./wiring')
+const config = require('./config')
+const one = require('./actions/one')
+const two = require('./actions/two')
+wiring(config, wiring.start(service))
 
-initialize((err, resrc) => {
-  if (err) throw err
+function service (mu, resrc) {
+  const {name} = config
 
-  service(mu, {
-    role: name,
-    resrc: resrc
-  })
+  mu.define({role: name, cmd: 'one'}, one(mu, resrc))
 
-  routing(mu, {
-    port: process.env.PORT || 6000,
-    host: process.env.HOST || 'localhost',
-    resrc: resrc
-  })
+  mu.define({role: name, cmd: 'two'}, two(mu, resrc))
 
   mu.log.info(`${name} service started`)
-})
+}

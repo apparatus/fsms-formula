@@ -1,8 +1,10 @@
 'use strict'
 const tcp = require('mu/drivers/tcp')
 
-module.exports = routing
+module.exports = setup
 
-function routing (mu, opts) {
+function setup (mu, opts, cb) {
   mu.inbound('*', tcp.server(opts))
+
+  cb()
 }
