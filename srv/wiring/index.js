@@ -1,34 +1,22 @@
 'use strict'
-const mu = require('mu')()
-const resources = require('./resources')
+const context = require('./context')
 const setup = require('./setup')
 
-wiring.start = start
 module.exports = wiring
 
-function wiring (opts, cb) {
-  resources(init)
+function wiring (opts, service, ready) {
+  context(opts.context, init)
 
-  function init (err, resrc) {
-    if (err) return cb(err)
-
+  function init (err, ctx) {
+    if (err) return ready(err)
+    service(ctx)
     setup(
-      mu,
-      Object.assign({}, opts.setup, {resrc}),
-      (err) => srv(err, {resrc})
+      ctx,
+      opts.setup,
+      (err) => {
+        ready(err, ctx)
+      }
     )
-  }
-
-  function srv (err, {resrc}) {
-    if (err) return cb(err)
-    cb(null, {mu, resrc})
-  }
-}
-
-function start (service) {
-  return (err, {mu, resrc}) => {
-    if (err) throw err
-    service(mu, resrc)
   }
 }
 
