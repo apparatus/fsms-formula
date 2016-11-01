@@ -19,6 +19,7 @@ function context (opts, cb) {
     //   server: restify.createServer(opts.server),
     //   client: restify.createJsonClient(opts.api)
     // }
+
     cb(null, ctx)
   }, 1000)
 }

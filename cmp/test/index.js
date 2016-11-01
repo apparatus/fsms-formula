@@ -3,6 +3,6 @@
 const test = require('tape')
 
 test(`one thing`, (t) => {
-  t.pass()
+  t.pass('ok')
   t.end()
 })
