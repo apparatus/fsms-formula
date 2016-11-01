@@ -1,0 +1,16 @@
+{
+  "description": "frontend component",
+  "scripts": {
+    "test": "tap test"
+  },
+  "devDependencies": {
+    "spacey-standard": "^3.0.0",
+    "tap": "^8.0.0",
+    "tape": "^4.6.2"
+  },
+  "dependencies": {
+    "mu": "^1.1.0"
+  },
+  "private": true,
+  "license": "UNLICENSED"
+}

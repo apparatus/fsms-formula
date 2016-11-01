@@ -3,8 +3,8 @@ module.exports = (ctx) => (args, cb) => {
   mu.dispatch({role: 'another-service', cmd: 'cmd'}, (err, result) => {
     if (err) return cb(err)
     // ...
-    result.moreStuff = {more: 'stuff'}
-    cb(null, result)
+    args.moreStuff = result
+    cb(null, args)
   })
 }
 

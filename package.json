@@ -1,19 +1,26 @@
 {
-  "version": "0.0.1",
   "name": "service-name",
+  "version": "0.0.1",
+  "description": "fullstack-service description",
   "scripts": {
     "start": "node srv",
+    "test": "tap srv/test cmp/test --branches=90 --statements=90 --functions=90 --lines=90",
+    "cov-report": "npm test -- --coverage-report=html",
+    "install": "cd srv && npm install && cd ../cmp && npm install",
     "lint": "spacey-standard",
-    "test": "tap test",
-    "coverage": "tap test --cov"
+    "audit": "cd srv && auditjs && cd ../cmp && auditjs",
+    "boil": "npm run boil-srv && npm run boil-cmp",
+    "boil-srv": "node -e 'srv = require(`./srv/package.json`);require(`assert`)(!srv.name && !srv.version, `srv package.json should not have name or version fields`)'",
+    "boil-cmp": "node -e 'cmp = require(`./cmp/package.json`);require(`assert`)(!cmp.name && !cmp.version, `cmp package.json should not have name or version fields`)'"
   },
   "devDependencies": {
-    "tap": "^7.1.2",
+    "auditjs": "^1.2.0",
+    "pre-commit": "^1.1.3",
     "spacey-standard": "^3.0.0",
-    "pre-commit": "^1.1.3"
+    "tap": "^7.1.2"
   },
-  "dependencies": {
-    "mu": "^1.0.0"
-  },
-  "pre-commit": ["lint", "test"]
+  "precommit": [
+    "test"
+  ],
+  "license": "UNLICENSED"
 }

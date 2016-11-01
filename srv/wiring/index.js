@@ -10,13 +10,7 @@ function wiring (opts, service, ready) {
   function init (err, ctx) {
     if (err) return ready(err)
     service(ctx)
-    setup(
-      ctx,
-      opts.setup,
-      (err) => {
-        ready(err, ctx)
-      }
-    )
+    setup(ctx, opts.setup, (err) => ready(err, ctx))
   }
 }
 
