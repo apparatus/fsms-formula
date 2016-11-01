@@ -7,9 +7,9 @@
     "test": "tap srv/test cmp/test --branches=90 --statements=90 --functions=90 --lines=90",
     "cov-report": "npm test -- --coverage-report=html",
     "install": "cd srv && npm install && cd ../cmp && npm install",
-    "lint": "spacey-standard",
+    "lint": "echo 'linting...' && spacey-standard",
     "audit": "cd srv && auditjs && cd ../cmp && auditjs",
-    "boil": "npm run boil-srv && npm run boil-cmp",
+    "boil": "echo 'boiling...' && npm run boil-srv && npm run boil-cmp",
     "boil-srv": "node -e 'srv = require(`./srv/package.json`);require(`assert`)(!srv.name && !srv.version, `srv package.json should not have name or version fields`)'",
     "boil-cmp": "node -e 'cmp = require(`./cmp/package.json`);require(`assert`)(!cmp.name && !cmp.version, `cmp package.json should not have name or version fields`)'"
   },
@@ -20,7 +20,9 @@
     "tap": "^7.1.2"
   },
   "precommit": [
-    "test"
+    "test",
+    "boil",
+    "lint"
   ],
   "license": "UNLICENSED"
 }
