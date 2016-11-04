@@ -1,5 +1,14 @@
+'use strict'
+
 module.exports = (ctx) => (args, cb) => {
-  cb(null, {my: 'action two'})
+  const {mu} = ctx
+  // call some other service/pattern
+  // mu.dispatch({role: 'another-service', cmd: 'action'}, (err, result) => {
+    // if (err) return cb(err)
+    // ...
+    args.moreStuff = {oh: 'fuck'}
+    cb(null, args)
+  // })
 }
 
 // restify:

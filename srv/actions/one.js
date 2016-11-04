@@ -1,11 +1,7 @@
+'use strict'
+
 module.exports = (ctx) => (args, cb) => {
-  const {mu} = ctx
-  mu.dispatch({role: 'another-service', cmd: 'cmd'}, (err, result) => {
-    if (err) return cb(err)
-    // ...
-    args.moreStuff = result
-    cb(null, args)
-  })
+  cb(null, {my: 'first action'})
 }
 
 // restify:
@@ -18,3 +14,4 @@ module.exports = (ctx) => (args, cb) => {
 //     logger.info('Server returned: %j', result)
 //   })
 // }
+

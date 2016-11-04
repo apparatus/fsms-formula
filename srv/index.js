@@ -13,6 +13,7 @@ function service (ctx) {
   mu.define({role: name, cmd: 'one'}, one(ctx))
 
   mu.define({role: name, cmd: 'two'}, two(ctx))
+
 }
 
 function ready (err, ctx) {

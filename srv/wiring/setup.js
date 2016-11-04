@@ -1,12 +1,15 @@
 'use strict'
 const tcp = require('mu/drivers/tcp')
+const local = require('mu/drivers/func')
 
 module.exports = setup
 
 function setup (ctx, opts, cb) {
   const {mu} = ctx
 
+
   mu.inbound('*', tcp.server(opts))
+  
 
   cb()
 }
