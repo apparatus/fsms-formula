@@ -1,8 +1,7 @@
 {
   "description": "frontend component",
   "scripts": {
-    "test": "tap test",
-    "build": "echo '<p> ok so build it </p>'"
+    "test": "tap test"
   },
   "devDependencies": {
     "browserify": "^13.1.1",

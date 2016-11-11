@@ -15,7 +15,14 @@ module.exports = {
   //   api: {url: env.API_URL}
   // },
   setup: {
-    port: env.PORT || 6000,
-    host: env.HOST || 'localhost'
+    dev: env.NODE_ENV !== 'production',
+    port: env.SERVICE_NAME_PORT,
+    host: env.SERVICE_NAME_HOST,
+    outbound: {
+      frontend: {
+        port: env.FRONTEND_PORT,
+        host: env.FRONTEND_HOST
+      }
+    }
   }
 }

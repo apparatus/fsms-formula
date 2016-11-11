@@ -10,7 +10,7 @@ test(`role: '${name}', cmd: 'one'`, (t) => {
     cb(null, {more: 'data'})
   }, (args, cb) => {
     cb(Error('some error'))
-  }] 
+  }]
 
   const ctx = {mu: {
     dispatch: (args, cb) => mocks.shift()(args, cb)

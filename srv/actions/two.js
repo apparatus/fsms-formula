@@ -1,13 +1,15 @@
 'use strict'
 
 module.exports = (ctx) => (args, cb) => {
-  const {mu} = ctx
+  // const {mu} = ctx
   // call some other service/pattern
   // mu.dispatch({role: 'another-service', cmd: 'action'}, (err, result) => {
     // if (err) return cb(err)
     // ...
-    args.moreStuff = {oh: 'fuck'}
-    cb(null, args)
+  cb(null, {
+    someUserDataWas: args.pattern.someUserData,
+    super: 'duper'
+  })
   // })
 }
 

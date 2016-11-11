@@ -1,6 +1,5 @@
 'use strict'
-const tcp = require('mu/drivers/tcp')
-const local = require('mu/drivers/func')
+const tcp = require('mu-tcp')
 
 module.exports = setup
 
@@ -9,7 +8,11 @@ function setup (ctx, opts, cb) {
 
 
   mu.inbound('*', tcp.server(opts))
-  
+
+  if (opts.dev) {
+    mu.outbound({role: 'frontend'}, tcp.client(opts.outbound.frontend))
+  }
+
 
   cb()
 }
