@@ -6,13 +6,7 @@ module.exports = setup
 function setup (ctx, opts, cb) {
   const {mu} = ctx
 
-
   mu.inbound('*', tcp.server(opts))
-
-  if (opts.dev) {
-    mu.outbound({role: 'frontend'}, tcp.client(opts.outbound.frontend))
-  }
-
 
   cb()
 }

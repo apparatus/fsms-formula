@@ -1,40 +1,19 @@
 'use strict'
 const wiring = require('./wiring')
 const config = require('./config')
-const remote = require('../cmp/wiring/remote.js')
 const one = require('./actions/one')
 const two = require('./actions/two')
+const dev = config.dev && require('../dev')
 
 wiring(config, service, ready)
 
 function service (ctx) {
   const {mu} = ctx
-  const {name, dev} = config
+  const {name} = config
 
   mu.define({role: name, cmd: 'one'}, one(ctx))
 
   mu.define({role: name, cmd: 'two'}, two(ctx))
-
-  if (dev) {
-    const cmp = remote(config)
-
-    mu.define({role: name, cmd: 'component'}, (args, cb) => {
-      cmp((err, payload) => {
-        if (err) {
-          cb(err)
-          return
-        }
-        cb(null, {payload: payload})
-      })
-    })
-
-    mu.dispatch({role: 'frontend', cmd: 'reload'}, function (err) {
-      console.error(err)
-    })
-
-  }
-
-
 }
 
 function ready (err, ctx) {
@@ -42,6 +21,9 @@ function ready (err, ctx) {
   const {name} = config
 
   if (err) { throw err }
+
+  if (dev) { dev(ctx) }
+
   mu.log.info(`${name} service started`)
 }
 

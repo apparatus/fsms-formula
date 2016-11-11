@@ -1,13 +1,13 @@
 const browserify = require('browserify')
 const builtins = {_process: require('browserify/lib/builtins')._process}
-const {name} = require('../config')
+const {name} = require('../package.json')
 
-module.exports = remote
+module.exports = bundle
 
-function remote (opts) {
+function bundle (opts) {
   var cached = ''
 
-  bundle((err, code) => {
+  make((err, code) => {
     if (err) {
       console.warn('Unable to create initial bundle', err)
       return
@@ -19,18 +19,18 @@ function remote (opts) {
 
   function html (cb) {
     if (cached) return cb(null, cached)
-    bundle((err, code) => {
+    make((err, code) => {
       if (err) return cb(err)
       cached = code
       cb(null, code)
     })
   }
 
-  function bundle (cb) {
+  function make (cb) {
     browserify({builtins: builtins, standalone: opts.dev && name})
-      .add(require.resolve('../'))
+      .add(require.resolve('../cmp'))
       .bundle((err, buf) => {
-        if (err) return console.error(err)
+        if (err) return cb(err)
         buf = buf.toString()
         cb(null, buf)
       })

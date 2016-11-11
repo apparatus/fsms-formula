@@ -4,17 +4,11 @@
     "test": "tap test"
   },
   "devDependencies": {
-    "browserify": "^13.1.1",
-    "end-of-stream": "^1.1.0",
-    "falafel": "^2.0.0",
-    "hyperxify": "^2.0.1",
     "spacey-standard": "^3.0.0",
     "tap": "^8.0.0",
-    "tape": "^4.6.2",
-    "through2": "^2.0.1"
+    "tape": "^4.6.2"
   },
   "dependencies": {
-    "mu": "^1.1.0"
   },
   "private": true,
   "license": "UNLICENSED"
