@@ -1,4 +1,5 @@
 {
+  "name": "srv",
   "description": "backend service",
   "scripts": {
     "start": "node .",

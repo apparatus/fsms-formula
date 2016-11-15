@@ -11,9 +11,14 @@ function service (ctx) {
   const {mu} = ctx
   const {name} = config
 
-  mu.define({role: name, cmd: 'one'}, one(ctx))
+  mu.define({role: name, cmd: 'one'}, one(ctx), `
+    a third arg can optionally be passed to define
+    which docs generator will use as a description 
+  `)
 
-  mu.define({role: name, cmd: 'two'}, two(ctx))
+  mu.define({role: name, cmd: 'two'}, two(ctx), `
+    description of cmd two...
+  `)
 }
 
 function ready (err, ctx) {
@@ -44,3 +49,5 @@ function ready (err, ctx) {
 //   if (err) { throw err }
 //   logger.info(`${name} service started`)
 // }
+
+module.exports = require('mu')
