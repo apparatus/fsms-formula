@@ -10,6 +10,7 @@
     "tape": "^4.6.2"
   },
   "dependencies": {
+    "hyperx": "^2.0.5"
   },
   "private": true
 }
