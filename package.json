@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "fullstack-service description",
   "scripts": {
+    "start": "node srv",
     "test": "tap -R spec srv/test cmp/test --branches=90 --statements=90 --functions=90 --lines=90",
     "coverage": "npm test -- --coverage-report=html",
     "lint": "echo 'linting...' && spacey-standard",
